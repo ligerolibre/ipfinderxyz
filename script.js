@@ -1,0 +1,37 @@
+
+const ipInput = document.getElementById('ipInput')
+const ipSubmit = document.getElementById('ipSubmit')
+const resultIP = document.querySelector('#result>span')
+const resultData = document.querySelector('#result>div')
+
+const getIPInfo = () => {
+    // ipInput의 value 가져오기
+    const ip = ipInput.value
+    // ipInfo API에 요청하기
+    fetch('http://ip-api.com/json/' + ip, {
+        method: 'get',
+    })
+    .then(response => response.json())
+    .then(res => {
+        // 반환된 값을 화면에 표시하기
+        resultIP.innerText = res['query']
+        let resultHTML;
+        const resKeys = Object.keys(res)
+        let statusIndex = resKeys.indexOf('status')
+        if (statusIndex != -1) resKeys.splice(statusIndex, 1)
+        resKeys.forEach(element => {
+            resultHTML += '<span>' + element + ': <strong>' + res[element] + '</strong></span>'
+        });
+        resultHTML = resultHTML.replaceAll('undefined', '')
+        resultData.innerHTML = resultHTML
+    })
+}
+
+getIPInfo()
+
+ipSubmit.addEventListener('click', getIPInfo)
+ipInput.onkeydown = function(e){
+    if(e.keyCode == 13){
+      getIPInfo()
+    }
+ };
