@@ -8,7 +8,7 @@ const getIPInfo = () => {
     // ipInput의 value 가져오기
     const ip = ipInput.value
     // ipInfo API에 요청하기
-    fetch('https://api.ipfinder.xyz/' + ip, {
+    fetch('https://api.ipfinder.xyz/' + ip, { // THIS IS MY BACKEND! USE http://ip-api.com/json/ ON YOUR SERVICE!
         method: 'get',
         headers: {
             'x-api-key': '7f7f5809-cc74-4214-869d-e02d958eaafb',
