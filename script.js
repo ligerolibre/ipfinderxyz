@@ -12,6 +12,9 @@ const getIPInfo = () => {
         method: 'get',
         headers: {
             'x-api-key': '7f7f5809-cc74-4214-869d-e02d958eaafb',
+            "Access-Control-Allow-Origin": "https://api.ipfinder.xyz",
+            "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "*",
         }
     })
     .then(response => response.json())
