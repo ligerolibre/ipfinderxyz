@@ -32,6 +32,9 @@ main {
     border: solid black 2px;
     background-color: skyblue;
 }
+.inputBox > #ipSubmit:hover {
+    background-color: rgb(169, 211, 227);
+}
 .inputBox > #ipInput:focus {
     outline: solid 2px steelblue;
 }
