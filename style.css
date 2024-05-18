@@ -30,12 +30,13 @@ main {
     padding: 10px;
     border-radius: 4px;
     border: solid black 2px;
+    background-color: skyblue;
 }
 .inputBox > #ipInput:focus {
-    outline: solid 2px skyblue;
+    outline: solid 2px steelblue;
 }
 .inputBox > #ipSubmit:focus {
-    outline: solid 2px skyblue;
+    outline: solid 2px steelblue;
 }
 #result {
     border-radius: 4px;
@@ -58,4 +59,26 @@ main {
 footer {
     margin-top: 40px;
     text-align: center;
+}
+ol>li::marker {
+    font-weight: bold;
+    font-size: 20px;
+}
+#article {
+    margin-top: 48px;
+}
+a:focus {
+    outline: solid 2px steelblue;
+}
+a:focus::before {
+    content: '★';
+}
+a:focus::after {
+    content: '★';
+}
+a:hover::before {
+    content: '★';
+}
+a:hover::after {
+    content: '★';
 }
