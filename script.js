@@ -1,8 +1,19 @@
+// Leaflet 초기화
+var map = L.map('map').setView([51.505, -0.09], 13);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+// 축척 막대를 지도 왼쪽 하단에 노출 
+L.control.scale({imperial: true, metric: true}).addTo(map);
 
 const ipInput = document.getElementById('ipInput')
 const ipSubmit = document.getElementById('ipSubmit')
 const resultIP = document.querySelector('#result>span')
-const resultData = document.querySelector('#result>div')
+const resultData = document.querySelector('#result>#resultData')
+
 
 const getIPInfo = () => {
     // ipInput의 value 가져오기
@@ -30,6 +41,8 @@ const getIPInfo = () => {
         });
         resultHTML = resultHTML.replaceAll('undefined', '')
         resultData.innerHTML = resultHTML
+        map.setView([res['lat'], res['lon']], 13);
+        L.marker({lon: res['lon'], lat: res['lat']}).bindPopup('Location').addTo(map);
     })
 }
 

@@ -54,7 +54,7 @@ main {
 #result > hr {
     border: 1px dashed  black;
 }
-#result > div {
+#result > #resultData {
     display: flex;
     gap: 2px;
     flex-flow: column;
@@ -70,18 +70,23 @@ ol>li::marker {
 #article {
     margin-top: 48px;
 }
-a:focus {
+.link:focus {
     outline: solid 2px steelblue;
 }
-a:focus::before {
+.link:focus::before {
     content: '★';
 }
-a:focus::after {
+.link:focus::after {
     content: '★';
 }
-a:hover::before {
+.link:hover::before {
     content: '★';
 }
-a:hover::after {
+.link:hover::after {
     content: '★';
+}
+#map {
+    max-width: 720px;
+    height: 300px;
+    overflow: hidden;
 }
